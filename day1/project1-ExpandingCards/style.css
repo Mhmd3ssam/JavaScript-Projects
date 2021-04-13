@@ -30,14 +30,15 @@ body{
     flex: 0.5;
     margin: 10px;
     position: relative;
-    transition: flex 0.7ms ease-in;
-
+    transition: flex 0.7s ease-in;
 }
+
 .panel h3 {
    font-size: 30px;
    position: absolute;
-   bottom: 5px;
-   right: 5px;
+   bottom: 20px;
+   right: 20px;
+   margin: 0;
    opacity: 0; 
 }
 
@@ -50,11 +51,10 @@ body{
     transition: opacity .3s ease-in .4s;
 }
 
-@media(max-width: 400px){
+@media(max-width: 480px){
     .container {
         width:  100vw;
     }
-
     .panel:nth-of-type(4),
     .panel:nth-of-type(5){
         display: none;
