@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@1,500&display=swap');
 
 :root{
-    --line-borde-file:#3498db;
+    --line-borde-file:#4ea7e2;
     --line-border-empty: #e0e0e0;
  
 }
@@ -48,7 +48,7 @@ body{
 }
 
 .progress {
-    background-color: var(--line-borde-file);
+    background-color:#000;
     position: absolute;
     top:50%;
     left: 0;
@@ -62,20 +62,20 @@ body{
 
 .circle {
     background-color: #fff;
-    color:#999;
+    color:#000;
     border-radius: 50%;
     height: 30px;
     width: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 3px soild #e0e0e0;
+    border: 3px soild var(--line-border-file);
     transition: .4s ease;
 
 }
 
 .circle.active {
-    border-color: var(--line-borde-file);
+    border-color: #000;
 }
 
 .btn {
