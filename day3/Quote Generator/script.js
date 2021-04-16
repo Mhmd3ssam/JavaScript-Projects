@@ -4,7 +4,6 @@ const authorText = document.getElementById('author');
 const twitterBtn = document.getElementById('twitter');
 const newQuoteBtn = document.getElementById('new-quote');
 
-
 //random quote 
 function randomQuote(max){
     let num = Math.random();
