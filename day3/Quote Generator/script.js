@@ -12,6 +12,12 @@ function loading(){
     loader.hidden = true; 
 }
 
+
+//random quote 
+function randomQuote(max){
+    let num = Math.random();
+    return Math.floor(num* max); 
+}
 // Hide Loading 
 function complete (){
     loading();
@@ -21,29 +27,29 @@ function complete (){
 }
 //Get Quote From Api 
 async function getQuote(){
-    const proxy = 'https://cors-anywhere.herokuapp.com/';
-    const apiUrl = 'http://api.forismatic.com/api/1.0/?method=getQute&lang=en&format=jison';
+    
+    const apiUrl = 'https://type.fit/api/quotes';
 
     try{
-        const response = await fetch(proxy + apiUrl);
-        const data = await response.json();
-        // if Author is blank , add 'Unknow'
-        if (data.quoteAuthor === ''){
-            authorText.innerText = 'Unknow';
-        } else {
-           authorText.innerText = data.quoteAuthor; 
-        }
+        const response = await fetch( apiUrl );
+        const quotes = await response.json();
+        const index = randomQuote(quotes.length);
+        const quote = quotes[index]; 
+
+        // display quote 
+        authorText.innerText = quote.author; 
+        
       // reduce font size for long quotes
-      if(data.quoteText.length >120){
+      if(quote.text.length >120){
           quoteText.classList.add('long-quote');
       } else {
           quoteText.classList.remove('long-quote');
       }
-     quoteText.innerText = data.quoteText;
+     quoteText.innerText = quote.text;
      //Stope Loader, Show Quote 
      complete();
     } catch(error){
-        getQuote();
+        console.error(error);
     }
 
 }
